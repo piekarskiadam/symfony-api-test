@@ -85,16 +85,16 @@ CREATE TABLE std.tbl_kunden (
 );
 
 INSERT INTO std.tbl_kunden (
-    id, name, vorname, firma, geburtsdatum, geloescht, email, vermittler_id
+    id, name, vorname, firma, geburtsdatum, geloescht, email, vermittler_id, geschlecht
 ) VALUES
-('D5F449CE', 'Meier', 'Bertram', NULL, '1973-03-06', 0, 'mebe@example.org', 1000),
-('E97DEF37', 'Schmitz', 'Anke', 'Dies und Das GbR', '2000-12-02', 0, 'scan@example.org', 3000),
-('80BA9796', 'Fink', 'Christian', NULL, NULL, 1, NULL, 1000),
-('80B4F645', 'Strauss', 'Karsten', NULL, '1993-02-17', 0, 'stka@example.org', 2000),
-('8C3C855C', 'von Burgenstaedt', 'Barius', NULL, '1993-10-27', 0, null, 4000),
-('E2D547B5', 'von Burgenstaedt', 'Stefan', NULL, '1970-12-07', 0, 'burgenstaedt@example.org', 4000),
-('05EEC268', 'von Burgenstaedt', 'Max', NULL, '1999-12-15', 0, null, 4000),
-('C8EFDAAD', 'von Burgenstaedt', 'Stefanie', NULL, '1973-01-01', 0, 'burgenstaedt@example.org', 4000)
+('D5F449CE', 'Meier', 'Bertram', NULL, '1973-03-06', 0, 'mebe@example.org', 1000,'männlich'),
+('E97DEF37', 'Schmitz', 'Anke', 'Dies und Das GbR', '2000-12-02', 0, 'scan@example.org', 3000,'weiblich'),
+('80BA9796', 'Fink', 'Christian', NULL, NULL, 1, NULL, 1000,'männlich'),
+('80B4F645', 'Strauss', 'Karsten', NULL, '1993-02-17', 0, 'stka@example.org', 2000,'männlich'),
+('8C3C855C', 'von Burgenstaedt', 'Barius', NULL, '1993-10-27', 0, null, 4000,'divers'),
+('E2D547B5', 'von Burgenstaedt', 'Stefan', NULL, '1970-12-07', 0, 'burgenstaedt@example.org', 4000,'männlich'),
+('05EEC268', 'von Burgenstaedt', 'Max', NULL, '1999-12-15', 0, null, 4000,'männlich'),
+('C8EFDAAD', 'von Burgenstaedt', 'Stefanie', NULL, '1973-01-01', 0, 'burgenstaedt@example.org', 4000,'weiblich')
 ;
 
 CREATE TABLE std.adresse (
@@ -115,6 +115,7 @@ INSERT INTO std.adresse (strasse, plz, ort, bundesland) VALUES
 ;
 
 CREATE TABLE std.kunde_adresse (
+    id serial PRIMARY KEY,
     kunde_id varchar (36) NOT NULL,
     adresse_id int NOT NULL,
     geschaeftlich boolean DEFAULT false,

@@ -23,6 +23,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=admin
+      - PGDATA=/data/postgres
     networks:
       - saf_api
 
@@ -42,6 +43,13 @@ services:
       - "9050:9000"
     depends_on:
       - psql.test
+    networks:
+      - saf_api
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9000:8080
     networks:
       - saf_api
 
@@ -74,3 +82,6 @@ services:
       - psql.test
     networks:
       - saf_api
+
+volumes:
+    postgres:

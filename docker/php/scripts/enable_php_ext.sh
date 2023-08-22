@@ -12,7 +12,8 @@ docker-php-ext-install \
     soap \
     xml \
     xsl \
-    zip
+    zip \
+    opcache
 docker-php-ext-enable \
     dba \
     gd \
@@ -23,7 +24,8 @@ docker-php-ext-enable \
     soap \
     xml \
     xsl \
-    zip
+    zip \
+    opcache
 
 pecl install xdebug
 

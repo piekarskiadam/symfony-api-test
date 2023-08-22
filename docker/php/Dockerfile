@@ -10,8 +10,7 @@ WORKDIR /custom-setup
 RUN chmod +x *.sh
 
 RUN ./install_packages.sh \
-    && ./enable_php_ext.sh \
-    && ./install_composer.sh
+    && ./enable_php_ext.sh
 
 RUN rm -Rf /custom-setup
 
